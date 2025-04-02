@@ -4,10 +4,13 @@ Une stack **React + Flask** prête à l'emploi, pensée avec une approche **DevS
 
 ![CI/CD](https://github.com/Daniween/api-react-flask/actions/workflows/security.yml/badge.svg)
 ![Docker](https://img.shields.io/badge/Docker-ready-blue)
-![React](https://img.shields.io/badge/React-Vite-61DAFB)
-![Flask](https://img.shields.io/badge/Flask-backend-lightgrey)
 ![Security](https://img.shields.io/badge/Security-Scanned-brightgreen)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/eacc1cb33791488399e0e1c53ad5f9cb)](https://app.codacy.com/gh/Daniween/api-react-flask/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+
+---
+
+![React](https://img.shields.io/badge/React-Vite-61DAFB)
+![Flask](https://img.shields.io/badge/Flask-backend-lightgrey)
 
 ---
 
