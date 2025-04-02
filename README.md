@@ -40,6 +40,8 @@ Frontend : http://localhost:5173
 
 Backend API : http://localhost:5000
 
+---
+
 ### 📦 Structure du projet
 
 ```
@@ -60,6 +62,8 @@ Backend API : http://localhost:5000
 └── README.md
 ```
 
+---
+
 ### 🔐 Sécurité & Scans
 
 | Outil    | Objectifs                                   |
@@ -68,8 +72,12 @@ Backend API : http://localhost:5000
 | Snyk     | Audit des dépendances NPM & Python          |
 | GitLeaks | Détection de secrets sensibles dans le code |
 
+---
+
 ### 🧪 Tester le Frontend (React)
 
 Accède à : http://localhost:5173
+
+---
 
 ### Made with ❤️ by Daniween
