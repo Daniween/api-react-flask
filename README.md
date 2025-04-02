@@ -1,6 +1,6 @@
 # ⚡ FullStack DevSecure App
 
-Une stack **React + Flask** prête à l'emploi, pensée avec une approche **DevSecOps** : sécurisée dès le développement, containerisée, et prête pour l'automatisation CI/CD.
+Une stack **React Vite + Flask** prête à l'emploi, pensée avec une approche **DevSecOps** : sécurisée dès le développement, containerisée, et prête pour l'automatisation CI/CD.
 
 ![CI/CD](https://github.com/Daniween/api-react-flask/actions/workflows/security.yml/badge.svg)
 ![Docker](https://img.shields.io/badge/Docker-ready-blue)
