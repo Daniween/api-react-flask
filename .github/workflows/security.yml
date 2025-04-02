@@ -125,20 +125,6 @@ jobs:
           name: snyk-frontend-report
           path: snyk-frontend-report.html
 
-      - name: Commit Snyk HTML report to repo
-        run: |
-          mkdir -p report
-          cp snyk-backend-report.html report/index.html
-
-          git config --global user.name "github-actions"
-          git config --global user.email "actions@github.com"
-
-          git pull
-          git checkout report
-          git add report/index.html
-          git commit -m "Add Snyk HTML report"
-          git push
-
       # ----- GITLEAKS -----
 
       - name: Scan for secrets with Gitleaks
