@@ -10,7 +10,7 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy app source
+# Copy app sources
 COPY . .
 
 # Variables d'environnement pour activer debug et reload
