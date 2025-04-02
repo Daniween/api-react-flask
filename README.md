@@ -16,7 +16,6 @@ Une stack **React + Flask** prête à l'emploi, pensée avec une approche **DevS
 - 🐍 **Backend Flask** avec auto-reload + base MySQL
 - 🐳 **Docker Compose** pour l’orchestration des services
 - 🛡️ **Sécurité DevSecOps** (Trivy, Gitleaks, Snyk, etc.)
-- 🔁 **Reload automatique** en développement
 - 📦 Structure modulaire et extensible
 
 ---
