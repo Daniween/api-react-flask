@@ -54,6 +54,14 @@ jobs:
           exit-code: "1"
           severity: "CRITICAL"
 
+      - name: Scan frontend image with Trivy
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: "devsecure-frontend"
+          format: "table"
+          exit-code: "1"
+          severity: "CRITICAL"
+
       - name: Install Snyk CLI
         run: npm install -g snyk
 
@@ -69,6 +77,8 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         run: snyk test --file=package.json --package-manager=npm --severity-threshold=high --fail-on=all
 
+      # ----- REPORTS -----
+
       - name: Snyk scan (Backend image) and export report
         continue-on-error: true
         env:
@@ -79,6 +89,17 @@ jobs:
             --severity-threshold=high \
             --exclude-base-image-vulns \
             --json > snyk-backend-report.json
+
+      - name: Snyk scan (Frontend image) and export report
+        continue-on-error: true
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        run: |
+          snyk container test devsecure-frontend \
+            --file=./frontend/Dockerfile \
+            --severity-threshold=high \
+            --exclude-base-image-vulns \
+            --json > snyk-frontend-report.json
 
       - name: Install snyk-to-html
         run: npm install -g snyk-to-html
@@ -91,6 +112,17 @@ jobs:
         with:
           name: snyk-backend-report
           path: snyk-backend-report.html
+
+      - name: Generate HTML report
+        run: snyk-to-html -i snyk-frontend-report.json -o snyk-frontend-report.html
+
+      - name: Upload Snyk HTML report
+        uses: actions/upload-artifact@v4
+        with:
+          name: snyk-frontend-report
+          path: snyk-frontend-report.html
+
+      # ----- GITLEAKS -----
 
       - name: Scan for secrets with Gitleaks
         uses: gitleaks/gitleaks-action@v2
