@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
+const API_BASE_URL = import.meta.env.VITE_API_URL
+
 export default function Dashboard() {
   const [userData, setUserData] = useState(null)
   const [error, setError] = useState(null)
@@ -15,7 +17,7 @@ export default function Dashboard() {
           return
         }
 
-        const res = await fetch('http://localhost:5000/user/profile', {
+        const res = await fetch(`${API_BASE_URL}/user/profile`, {
           headers: {
             'Authorization': `Bearer ${token}`,
           },
