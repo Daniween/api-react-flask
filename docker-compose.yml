@@ -13,8 +13,13 @@ services:
     environment:
       - FLASK_ENV=development
       - FLASK_DEBUG=1
+      - DB_HOST=postgres_flask
+      - DB_PORT=5432
+      - DB_NAME=flaskdb
+      - DB_USER=user
+      - DB_PASSWORD=userpassword
     depends_on:
-      - mysql_flask
+      - postgres_flask
 
   frontend:
     build: 
@@ -23,24 +28,23 @@ services:
     ports:
       - "5173:5173"
     volumes:
-    - ./frontend:/app
-    - /app/node_modules 
+      - ./frontend:/app
+      - /app/node_modules 
     depends_on:
       - backend
 
-  mysql_flask:
-    image: mysql:latest
+  postgres_flask:
+    image: postgres:latest
     container_name: flask_db
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: flaskdb
-      MYSQL_USER: user
-      MYSQL_PASSWORD: userpassword
+      POSTGRES_DB: flaskdb
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: userpassword
     ports:
-      - "3306:3306"
+      - "5432:5432"
     volumes:
-      - ./mysql_data:/var/lib/mysql
+      - ./postgres_data:/var/lib/postgresql/data
 
 volumes:
-  mysql_data:
+  postgres_data:
