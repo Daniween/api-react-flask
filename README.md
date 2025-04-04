@@ -17,7 +17,7 @@ Une stack **React Vite + Flask** prête à l'emploi, pensée avec une approche *
 ## 🔧 Fonctionnalités
 
 - ⚛️ **Frontend ReactJS (Vite)** avec hot reload
-- 🐍 **Backend Flask** avec auto-reload + base MySQL
+- 🐍 **Backend Flask** avec auto-reload + base Postgres
 - 🐳 **Docker Compose** pour l’orchestration des services
 - 🛡️ **Sécurité DevSecOps** (Trivy, Gitleaks, Snyk, etc.)
 - 📦 Structure modulaire et extensible
